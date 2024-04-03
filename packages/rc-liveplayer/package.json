@@ -1,11 +1,10 @@
 {
   "name": "rc-liveplayer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@liveqing/liveplayer for react",
   "homepage": "https://github.com/lf7817/react-liveplayer",
   "types": "module",
   "scripts": {
-    "postinstall": "pnpm run build",
     "build": "unbuild"
   },
   "repository": {
