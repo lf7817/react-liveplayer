@@ -1,11 +1,16 @@
 {
-  "name": "react-liveplayer",
+  "name": "rc-liveplayer",
   "version": "1.0.0",
   "description": "@liveqing/liveplayer for react",
+  "homepage": "https://github.com/lf7817/react-liveplayer",
   "types": "module",
   "scripts": {
     "postinstall": "pnpm run build",
     "build": "unbuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lf7817/react-liveplayer"
   },
   "keywords": ["react", "liveplayer", "vite-plugin", "livegbs", "@liveqing/liveplayer", "liveqing"],
   "author": "lf7817 <535536456@qq.com>",

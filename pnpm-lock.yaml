@@ -41,15 +41,15 @@ importers:
       '@liveqing/liveplayer':
         specifier: ^2.7.22
         version: 2.7.22
+      rc-liveplayer:
+        specifier: workspace:^
+        version: link:../../packages/rc-liveplayer
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
-      react-liveplayer:
-        specifier: workspace:^
-        version: link:../../packages/react-liveplayer
     devDependencies:
       '@types/react':
         specifier: ^18.2.66
@@ -67,7 +67,7 @@ importers:
         specifier: ^5.2.0
         version: 5.2.7(@types/node@18.19.3)
 
-  packages/react-liveplayer:
+  packages/rc-liveplayer:
     dependencies:
       '@liveqing/liveplayer':
         specifier: ^2.7.22
