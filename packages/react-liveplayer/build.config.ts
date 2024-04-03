@@ -1,4 +1,4 @@
-import { defineBuildConfig } from 'unbuild';
+import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig([
   {
@@ -9,7 +9,7 @@ export default defineBuildConfig([
     externals: ['vite'],
     rollup: {
       esbuild: {
-        minify: true,
+        minify: false,
       },
     },
   },

@@ -14,6 +14,6 @@ export default await antfu({
   plugins: {
   },
   rules: {
-
+    'no-console': 'off',
   },
 })

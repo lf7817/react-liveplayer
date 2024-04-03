@@ -2,9 +2,18 @@ import path from 'node:path'
 import process from 'node:process'
 import fs from 'fs-extra'
 import serveStatic from 'serve-static'
-import { HtmlTagDescriptor, Plugin, normalizePath } from 'vite'
+import type { HtmlTagDescriptor, Plugin } from 'vite'
+import { normalizePath } from 'vite'
 
 const __dirname = path.resolve(path.dirname(''))
+
+function checkLivePlayerExist(dirPath: string) {
+  const doesExist = fs.existsSync(dirPath)
+  if (!doesExist)
+    throw new Error(`[react-liveplayer]: 请安装@liveqing/liveplayer`)
+
+  return doesExist
+}
 
 export function livePlayer(): Plugin {
   let _outDir = 'dist'
@@ -12,9 +21,8 @@ export function livePlayer(): Plugin {
   let isBuild = false
   const root = process.cwd()
   const dest = 'liveplayer'
-  const src = './node_modules/@liveqing/liveplayer/dist/element/'
-  const serverPath = path.posix.join('/', base, dest)
-  const srcPath = normalizePath(path.resolve(__dirname, src))
+  let serverPath = path.posix.join('/', base, dest)
+  const srcPath = normalizePath(path.resolve(__dirname, './node_modules/@liveqing/liveplayer/dist/element/'))
 
   return {
     name: 'vite-plugin-liveplayer',
@@ -27,18 +35,20 @@ export function livePlayer(): Plugin {
         if (base === '')
           base = './'
       }
-      //
+
+      serverPath = path.posix.join('/', base, dest)
       _outDir = conf.build?.outDir || 'dist'
 
       return conf
     },
 
     configureServer({ middlewares }) {
-      middlewares.use(serverPath, serveStatic(srcPath))
+      if (checkLivePlayerExist(srcPath))
+        middlewares.use(serverPath, serveStatic(srcPath))
     },
 
     async closeBundle() {
-      if (isBuild) {
+      if (isBuild && checkLivePlayerExist(srcPath)) {
         try {
           await fs.copy(srcPath, normalizePath(path.resolve(root, _outDir, dest)))
         }
