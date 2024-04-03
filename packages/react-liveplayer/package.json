@@ -1,13 +1,13 @@
 {
   "name": "react-liveplayer",
   "version": "1.0.0",
-  "description": "",
+  "description": "@liveqing/liveplayer for react",
   "types": "module",
   "scripts": {
     "postinstall": "pnpm run build",
     "build": "unbuild"
   },
-  "keywords": [],
+  "keywords": ["react", "liveplayer", "vite-plugin", "livegbs", "@liveqing/liveplayer", "liveqing"],
   "author": "lf7817 <535536456@qq.com>",
   "files": [
     "dist",
@@ -50,5 +50,9 @@
     "vite": {
       "optional": true
     }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmmirror.com/"
   }
 }
