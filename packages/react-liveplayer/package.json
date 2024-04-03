@@ -1,0 +1,52 @@
+{
+  "name": "react-liveplayer",
+  "version": "1.0.0",
+  "description": "",
+  "types": "module",
+  "scripts": {
+    "postinstall": "pnpm run build",
+    "build": "unbuild"
+  },
+  "keywords": [],
+  "author": "lf7817 <535536456@qq.com>",
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "module": "dist/index.mjs",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./vite-plugin": {
+      "import": "./dist/vite.mjs",
+      "types": "./dist/vite.d.ts"
+    }
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@liveqing/liveplayer": "^2.7.22",
+    "fs-extra": "^9.1.0",
+    "serve-static": "^1.15.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/react": "^18.2.73",
+    "@types/serve-static": "^1.15.5",
+    "@vitejs/plugin-react-swc": "^3.6.0",
+    "react": "^18.2.0",
+    "unbuild": "^2.0.0",
+    "vite": "^5.2.7"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "vite": ">=5.0.0"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  }
+}
